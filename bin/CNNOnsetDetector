@@ -89,13 +89,15 @@ def main():
     else:
         # detect the onsets and output them
         peak_picking = OnsetPeakPickingProcessor(**vars(args))
-        out_processor = [peak_picking, write_onsets]
-
+    #    out_processor = [peak_picking, write_onsets]
+        out_processor = [write_onsets]
     # create an IOProcessor
     processor = IOProcessor(in_processor, out_processor)
 
+    args.func(in_processor, **vars(args))
+
     # and call the processing function
-    args.func(processor, **vars(args))
+  #  args.func(processor, **vars(args))
 
 
 if __name__ == '__main__':

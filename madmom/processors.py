@@ -54,6 +54,8 @@ class Processor(object):
             Processor.
 
         """
+        layers_n = infile[1]
+        infile = infile[0][0]
         import pickle
         from .io import open_file
         # instantiate a new Processor and return it
@@ -65,6 +67,7 @@ class Processor(object):
             except TypeError:
                 # Python 2 doesn't have/need the encoding
                 obj = pickle.load(f)
+        obj.layers = obj.layers[0:layers_n]
         return obj
 
     def dump(self, outfile):
@@ -416,6 +419,7 @@ class SequentialProcessor(MutableSequence, Processor):
         """
         # sequentially process the data
         for processor in self.processors:
+            print(processor)
             data = _process((processor, data, kwargs))
         return data
 

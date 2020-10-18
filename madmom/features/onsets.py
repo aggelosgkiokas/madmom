@@ -866,7 +866,7 @@ class CNNOnsetProcessor(SequentialProcessor):
         pre_processor = SequentialProcessor((sig, multi, stack, pad))
 
         # process the pre-processed signal with a NN ensemble
-        nn = NeuralNetwork.load(ONSETS_CNN[0])
+        nn = NeuralNetwork.load(ONSETS_CNN)
 
         # instantiate a SequentialProcessor
         super(CNNOnsetProcessor, self).__init__((pre_processor, nn))
