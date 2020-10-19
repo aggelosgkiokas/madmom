@@ -48,7 +48,7 @@ ONSETS_RNN = models('onsets/2013/onsets_rnn_[1-8].pkl')
 ONSETS_BRNN = models('onsets/2013/onsets_brnn_[1-8].pkl')
 ONSETS_BRNN_PP = models('onsets/2014/onsets_brnn_pp_[1-8].pkl')
 #ONSETS_CNN = models('onsets/2013/onsets_cnn_predense.pkl')
-ONSETS_CNN = [models('onsets/2013/onsets_cnn.pkl'), 1]
+ONSETS_CNN = [models('onsets/2013/onsets_cnn.pkl'), 7]
 
 # patterns
 PATTERNS_BALLROOM = models('patterns/2013/ballroom_pattern_[34]_4.pkl')

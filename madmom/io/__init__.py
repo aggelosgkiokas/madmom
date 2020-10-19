@@ -537,3 +537,8 @@ def write_tempo(tempi, filename, delimiter='\t', header=None, mirex=None):
     out = np.array([t1, t2, strength], ndmin=2)
     write_events(out, filename, fmt=['%.2f', '%.2f', '%.2f'],
                  delimiter=delimiter, header=header)
+
+def write_to_npz(data,filename):
+
+    np.savez(filename,data)
+    return

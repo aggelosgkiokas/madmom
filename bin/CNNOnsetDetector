@@ -13,6 +13,7 @@ from madmom.audio import SignalProcessor
 from madmom.features import (ActivationsProcessor, CNNOnsetProcessor,
                              OnsetPeakPickingProcessor)
 from madmom.io import write_onsets
+from madmom.io import write_to_npz
 from madmom.processors import IOProcessor, io_arguments
 
 
@@ -88,13 +89,13 @@ def main():
         out_processor = ActivationsProcessor(mode='w', **vars(args))
     else:
         # detect the onsets and output them
-        peak_picking = OnsetPeakPickingProcessor(**vars(args))
-    #    out_processor = [peak_picking, write_onsets]
-        out_processor = [write_onsets]
+       # peak_picking = OnsetPeakPickingProcessor(**vars(args))
+      #  out_processor = [peak_picking, write_onsets]
+        out_processor = [write_to_npz]
     # create an IOProcessor
     processor = IOProcessor(in_processor, out_processor)
 
-    args.func(in_processor, **vars(args))
+    args.func(processor, **vars(args))
 
     # and call the processing function
   #  args.func(processor, **vars(args))
